@@ -65,7 +65,6 @@ pipeline {
   
     stage('k8s deploy'){
         steps{
-            sh 'kubectl delete deployment mavenwebappdeployment'
             sh 'kubectl apply -f maven-web-app-deploy.yml'
         }
     }
