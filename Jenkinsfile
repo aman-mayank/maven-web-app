@@ -15,11 +15,13 @@ pipeline {
         }
     
     stage('SonarQube analysis') {   
-        steps{    
+        steps{  
+            script{  
         withSonarQubeEnv('sonarserver') {
        	sh "mvn sonar:sonar"
         }
       }
+        }
     }
 }
 }
