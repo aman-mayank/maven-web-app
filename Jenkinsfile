@@ -39,7 +39,7 @@ pipeline {
                     ],
                  credentialsId: 'nexus-credentials',
                   groupId: 'in.ashokit', 
-                  nexusUrl: '43.207.145.9:8081/', 
+                  nexusUrl: '3.112.69.61:8081/', 
                   nexusVersion: 'nexus3', 
                   protocol: 'http', 
                   repository: nexusRepo,
