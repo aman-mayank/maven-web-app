@@ -23,5 +23,29 @@ pipeline {
             }
           }
        }
+    
+    stage('nexus upload'){
+        steps{
+            script{
+                nexusArtifactUploader artifacts: 
+                [
+                    [artifactId: '01-maven-web-app', 
+                    classifier: '', 
+                    file: 'target/01-maven-web-app.war', 
+                    type: 'war']
+                    ],
+                 credentialsId: 'nexus-credentials',
+                  groupId: 'in.ashokit', 
+                  nexusUrl: '43.207.145.9:8081/', 
+                  nexusVersion: 'nexus3', 
+                  protocol: 'http', 
+                  repository: 'mysnapshotrepo',
+                   version: '1.0-SNAPSHOT'
+            }
+        }
     }
+    
+    
+    }
+
 }
