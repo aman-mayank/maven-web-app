@@ -50,9 +50,9 @@ pipeline {
     
     stage('create image'){
         steps{
-            sh "docker build -t amanmayank/01-maven-web-app "
+            sh "docker build -t amanmayank/01-maven-web-app ."
         }
     }
-    }
+  }
 
 }
