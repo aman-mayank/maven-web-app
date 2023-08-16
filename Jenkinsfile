@@ -50,8 +50,15 @@ pipeline {
     
     stage('create image'){
         steps{
-            sh "docker build -t amanmayank/01-maven-web-app ."
+            sh "docker build -t amanmayank97/01-maven-web-app ."
         }
+    }
+
+    stage('push image'){
+        withCredentials([string(credentialsId: 'dockerpsw', variable: 'dockerpwd')]) {
+           sh "docker login -u amanmayank97 -p ${dockerpwd}"
+           sh "docker push amanmayank97/01-maven-web-app"
+         }
     }
   }
 
